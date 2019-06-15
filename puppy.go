@@ -3,13 +3,21 @@ package main
 import (
 	"log"
 
+    "github.com/joho/godotenv"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
 
 func main() {
 
-	//bosPuppyID := 
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	s3Bucket := os.Getenv("S3_BUCKET")
+	secretKey := os.Getenv("SECRET_KEY")
+
 
 	bot, err := tgbotapi.NewBotAPI("MyAwesomeBotToken")
 	if err != nil {
