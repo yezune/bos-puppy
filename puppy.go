@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
     "github.com/joho/godotenv"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
@@ -15,11 +16,11 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	s3Bucket := os.Getenv("S3_BUCKET")
-	secretKey := os.Getenv("SECRET_KEY")
+	bosPuppyToken := os.Getenv("BOS_PUPPY_TOKEN")
+	
+	log.Printf("BOS_PUPPY_TOKEN: %s", bosPuppyToken)
 
-
-	bot, err := tgbotapi.NewBotAPI("MyAwesomeBotToken")
+	bot, err := tgbotapi.NewBotAPI(bosPuppyToken)
 	if err != nil {
 		log.Panic(err)
 	}
