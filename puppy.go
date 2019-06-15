@@ -4,10 +4,9 @@ import (
 	"log"
 	"os"
 
-    "github.com/joho/godotenv"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/joho/godotenv"
 )
-
 
 func main() {
 
@@ -17,7 +16,7 @@ func main() {
 	}
 
 	bosPuppyToken := os.Getenv("BOS_PUPPY_TOKEN")
-	
+
 	log.Printf("BOS_PUPPY_TOKEN: %s", bosPuppyToken)
 
 	bot, err := tgbotapi.NewBotAPI(bosPuppyToken)
